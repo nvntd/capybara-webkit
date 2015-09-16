@@ -24,7 +24,6 @@ WebPage::WebPage(WebPageManager *manager, QObject *parent) : QWebPage(parent) {
 
   setForwardUnsupportedContent(true);
   loadJavascript();
-  setUserStylesheet();
 
   this->setCustomNetworkAccessManager();
 
@@ -110,12 +109,6 @@ void WebPage::loadJavascript() {
     javascriptString[javascript.size()] = 0;
     m_capybaraJavascript = javascriptString;
   }
-}
-
-void WebPage::setUserStylesheet() {
-  QString data = QString("*, :before, :after { font-family: 'Arial' ! important; }").toUtf8().toBase64();
-  QUrl url = QUrl(QString("data:text/css;charset=utf-8;base64,") + data);
-  settings()->setUserStyleSheetUrl(url);
 }
 
 QString WebPage::userAgentForUrl(const QUrl &url ) const {

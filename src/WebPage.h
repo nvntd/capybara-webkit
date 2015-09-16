@@ -89,7 +89,6 @@ class WebPage : public QWebPage {
     bool m_failed;
     QStringList getAttachedFileNames();
     void loadJavascript();
-    void setUserStylesheet();
     bool m_confirmAction;
     bool m_promptAction;
     QVariantList m_consoleMessages;
